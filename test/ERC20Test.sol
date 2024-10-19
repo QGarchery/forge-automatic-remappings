@@ -12,6 +12,7 @@ contract CounterTest is Test {
         token = new ERC20();
     }
 
+    // Notice how this test passes after removing the folder lib/interesting-project.
     function testTotalSupply() public view {
         assertGt(token.totalSupply(), 0, "No token minted !");
     }
