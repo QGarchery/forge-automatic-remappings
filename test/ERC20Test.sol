@@ -2,23 +2,17 @@
 pragma solidity ^0.8.13;
 
 import {Test, console} from "forge-std/Test.sol";
-import {Counter} from "../src/Counter.sol";
+import {ERC20} from "../src/ERC20.sol";
 
 contract CounterTest is Test {
-    Counter public counter;
+    ERC20 public token;
 
     function setUp() public {
-        counter = new Counter();
-        counter.setNumber(0);
+        vm.warp(1e9);
+        token = new ERC20();
     }
 
-    function test_Increment() public {
-        counter.increment();
-        assertEq(counter.number(), 1);
-    }
-
-    function testFuzz_SetNumber(uint256 x) public {
-        counter.setNumber(x);
-        assertEq(counter.number(), x);
+    function testTotalSupply() public view {
+        assertGt(token.totalSupply(), 0, "No token minted !");
     }
 }
