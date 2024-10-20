@@ -13,6 +13,7 @@ contract CounterTest is Test {
     }
 
     // Notice how this test passes after removing the folder lib/interesting-project.
+    // Also notice how interesting-project could be very deep in the sub-projects.
     function testTotalSupply() public view {
         assertGt(token.totalSupply(), 0, "No token minted !");
     }
