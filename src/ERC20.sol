@@ -10,7 +10,7 @@ contract ERC20 {
         totalSupply = _calculateAppropriateAmount(block.timestamp);
     }
 
-    function _calculateAppropriateAmount(uint256 timestamp) internal pure returns(uint256) {
+    function _calculateAppropriateAmount(uint256 timestamp) internal pure returns (uint256) {
         return Math.divDown(timestamp, 2);
     }
 }
